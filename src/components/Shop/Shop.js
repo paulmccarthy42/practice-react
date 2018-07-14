@@ -8,13 +8,15 @@ export class Shop extends Component {
 		super(props);
 		this.state = {
 			products: [],
-			cart: 0
+			cart: []
 		}
 	}
 
-	handleAddProduct = (prodInfo) => {
-		this.setState({cart: this.state.cart + 1})
-		console.log('item added, total of' + this.state.cart)
+	handleAddProduct = (prod) => {
+		const newCart = [...this.state.cart, prod]
+		this.setState({cart: newCart})
+		console.log('item added, total of' + this.state.cart.length)
+		console.log(prod)
 	}
 
 	componentDidMount() {
