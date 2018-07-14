@@ -7,7 +7,7 @@ export class Header extends Component {
     return (
       <div className='header'>
       	<img src={logo} alt='copyright infringment'/>
-      	<p class='menu'>
+      	<p className='menu'>
       		<a href="/shop">Shop</a>
       		<a href="/review">Review</a>
       		<a href="/orders">Orders</a>
