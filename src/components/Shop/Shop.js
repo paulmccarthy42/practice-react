@@ -15,8 +15,6 @@ export class Shop extends Component {
 	handleAddProduct = (prod) => {
 		const newCart = [...this.state.cart, prod]
 		this.setState({cart: newCart})
-		console.log('item added, total of' + this.state.cart.length)
-		console.log(prod)
 	}
 
 	componentDidMount() {
@@ -33,7 +31,11 @@ export class Shop extends Component {
 	      		this.state.products.map(product => <Product key={product.id} product={product} function={this.handleAddProduct}/>)
 	      	}
       	</div>
-      	<div className='cart-container'>Carts</div>
+      	<div className='cart-container'>
+      		<h5>Order Summary</h5>
+      		<p><small>Items Ordered: {this.state.cart.length} </small></p>
+      		<button>Order Review</button>
+      	</div>
       </div>
     );
   }
