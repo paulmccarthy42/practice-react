@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import StarRatingComponent from 'react-star-rating-component'
 import './Product.css'
 
 const Product = (props) => {
 	const prodInfo = props.product
+	const addProduct = props.function
 
 	return (
 		<div className='product'>
@@ -15,8 +17,15 @@ const Product = (props) => {
 				<div>
 					<p> by {prodInfo.seller} </p>
 					<p> ${prodInfo.price} </p>
-					<button>Add to cart</button>
-					<div className='features'>Features</div>
+					<button onClick={() => addProduct(prodInfo)}>Add to cart</button>
+					<div className='features'>
+						<StarRatingComponent 
+							name='product-rating' 
+							value={prodInfo.rating}
+							emptyStarColor='lightgrey'
+						/>
+						<h5>Features</h5>
+					</div>
 				</div>
 			</div>
 		</div>
